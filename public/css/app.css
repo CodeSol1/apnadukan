@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 body{
+    width: 100wh;
     background: #fcfcfc;
 display: flex;
 flex-direction: column;
