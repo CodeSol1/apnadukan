@@ -1,4 +1,430 @@
-h1
-{
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body{
+    background: #fcfcfc;
+display: flex;
+flex-direction: column;
+/* height: 100vh; */
+}
+
+h1{
     color: red;
 }
+
+ /* navbar */
+ .navbar{
+     background-color: rgb(241, 97, 13);
+     padding: 10px 50px;
+ }
+ .navbar-nav{
+     display: flex;
+     justify-content: center;
+    
+ }
+ .navbar-nav li{
+     text-align: center;
+ }
+
+
+
+
+
+
+.shoping-cart{
+    display: inline-block;
+    position: relative;
+    width: 50px;
+    background-color: #fff;
+    border-radius: 20px;
+    margin-left: 10px;
+    margin-top: 7px;
+    border: 2px solid red; 
+    justify-content: center;
+    
+}  
+.cart_image{
+    position: absolute;
+    left: 20px;
+} 
+ #cartCounter{
+    margin-left: 10px;
+}  
+
+
+
+/* navbar end */
+
+
+/* main section start */
+.hero{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(#08f6cffb,rgba(49, 104, 67, 0.2)) ,url('/img/pizza12.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+  
+   display: flex;  
+     justify-content: center;
+   text-align: center;
+   clip-path: polygon(100% 0%,100% 87%,50% 100%, 0% 85%, 0 0);
+   /* position: relative; */
+}
+
+.right-side{
+    margin:140px auto;
+}
+
+
+
+
+.login-btn{
+    width: 60px;
+    padding: 10px 20px;
+    border: 2px solid red;
+    border-radius: 10px;
+   margin: 50px 0px;
+   background-color: crimson;
+  
+}
+
+
+
+
+/* main section end */
+
+
+/*1.1 main card start*/
+
+.extradiv{
+    width: 100%;
+    height: auto;
+    margin: 30px 10px;
+    text-align: center;
+}
+
+.extra-div{
+    background-color: #fff;
+    border: none; 
+   
+    padding: 14px;
+   
+    border-radius: 3px;
+    transition: 0.3s;
+   
+}
+
+.extra-div:hover{
+   box-shadow: 0 0 20px 0 rgba(0,0,0,.5); 
+   transform: translateY(-10px);
+}
+
+
+
+
+
+
+
+/* main card end */
+
+/* order cart start */
+.summary{
+    margin-left: 40px;
+    display: flex;
+    padding-top: 5px;
+} 
+
+#cartid{
+    padding-bottom: 10px;
+    /* background-color: chartreuse; */
+}
+.summary-head{
+   
+    margin-bottom: 20px;
+}
+
+.cart{
+    margin-bottom: 50px;
+}
+
+
+.pizzabar{
+ background-color: rgb(222, 226, 226);
+ display: flex;
+ height: 120px;
+
+    
+}
+.pizza-image{
+    display: flex;
+flex: 3;
+padding-left: 20px;
+ margin-top: 11px;
+}
+
+.pizza-size{
+    flex: 1;
+    /* text-align: center; */
+    font-weight: bold;
+    margin-top: 35px;
+}
+
+.pizza-price{
+    flex: 1;
+    /* text-align: center; */
+    font-weight: bold;
+     margin-top: 35px;
+    
+}
+.pizza_list{
+   
+    padding-top: 10px;
+   
+   
+   
+}
+
+
+.login-btn1{
+   margin-top: 10px;
+ 
+   /* float: right; */
+}
+.login-btn1 a{
+     background-color: rgb(236, 149, 9);
+    width: 100%;
+    text-decoration: none;
+    color: white;
+    border-radius: 10px;
+    padding: 5px 25px;
+}
+.login-btn1 :hover{
+    color: black;
+    background-color: rgb(194, 23, 151);
+}
+.go_back{
+    margin-top: 10px;
+}
+
+.go_back a{
+ width: 100%;
+ background-color: #e6800b;
+ text-decoration: none;
+ padding: 5px 25px;
+ 
+ border-radius: 10px;
+ color: white;
+}
+.go_back a:hover{
+    color: black;
+    background-color: rgb(194, 23, 151);
+}
+
+/* order cart end */
+
+
+.price{
+    margin-left: 20px;
+}
+.right{
+    text-align: right;
+    margin-right: 30px;
+}
+
+
+#cartCounter{
+    color: black;
+    
+    font-size: 13px;
+    
+}
+
+
+.pricing{
+    display: flex;
+    justify-content: center;
+    text-align: z;
+}
+
+.pricing-left{
+    flex: 2;
+    font-weight: bold;
+}
+
+.add-cart{
+    flex: 1;
+    width: 30px;
+    border-radius: 20px;
+    
+}
+.add-cart:hover{
+    background-color: aqua;
+    color: red;
+}
+
+/* login page start */
+
+.login-page{
+    width: 100%;
+    height: 80vh;
+    display: flex;
+     justify-content: center;
+     background: url("/img/pizza3.jpg");
+background-repeat: no-repeat;
+background-size: 100% 100%;
+ 
+    
+}
+.login1{
+    
+   margin-top: 10px;
+    background-color: rgb(139, 190, 20);
+    width: 400px;
+    height: 400px;
+   
+}
+ .login-bar{ 
+
+top: 20%;
+left: 10%;
+margin: auto auto;
+/* background-color: blue; */
+width: 75%;
+}
+
+.login2{
+   
+   text-align: center;
+}
+.already-account a{
+    text-decoration: none;
+    margin-left: 20px;
+    color: #fff;
+   
+}
+
+.login-already a{
+    text-decoration: none;
+    margin-left: 20px;
+    
+}
+
+/* login page end */
+
+
+/* registration start */
+
+.register-page{
+   width: 100%;
+    height: 80vh;
+    display: flex;
+     justify-content: center;
+     background: url("/img/pizza5.jpg");
+background-repeat: no-repeat;
+background-size: 100% 100%;
+}
+.register1{
+ margin-top: 10px;
+    background-color: rgb(195, 26, 224);
+    width: 400px;
+    height: 400px;
+}
+ .register-bar{ 
+top: 20%;
+left: 10%;
+margin: auto auto;
+/* background-color: blue; */
+width: 70%;
+}
+
+.register2{
+   margin-top: 4px;
+   text-align: center;
+}
+/* registration end */
+
+
+.footer{
+    color: beige;
+    text-align: center;
+    height: 50px;
+    background-color: black;
+    padding-top: auto;
+
+}
+
+
+/* footer start */
+
+footer{
+    
+    background: #16c9f6;
+    height: auto;
+    width: 100vw;
+    font-family: "Open Sans";
+    padding-top: 50px;
+    color: #fff;
+}
+.footer-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+.footer-content h3{
+    font-size: 1.8rem;
+    font-weight: 400;
+    text-transform: capitalize;
+    line-height: 3rem;
+}
+.footer-content p{
+    max-width: 500px;
+    margin: 10px auto;
+    line-height: 28px;
+    font-size: 14px;
+}
+.socials{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0 3rem 0;
+}
+.socials li{
+    margin: 0 10px;
+}
+.socials a{
+    text-decoration: none;
+    color: #fff;
+}
+.socials a i{
+    font-size: 1.1rem;
+    transition: color .4s ease;
+
+}
+.socials a:hover i{
+    color: aqua;
+}
+
+.footer-bottom{
+    background: #000;
+    width: 100vw;
+    padding: 20px 0;
+    text-align: center;
+}
+.footer-bottom p{
+    font-size: 14px;
+    word-spacing: 2px;
+    text-transform: capitalize;
+}
+.footer-bottom span{
+    text-transform: uppercase;
+    opacity: .4;
+    font-weight: 200;
+}
+
+/* footer end */
