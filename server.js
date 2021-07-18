@@ -1,11 +1,22 @@
+// to eccess .env file
+require('dotenv').config()
+
 const express = require("express")
 const app = express();
 const ejs = require('ejs');
 const expressLayout = require("express-ejs-layouts");
 const path = require('path')
+const mongoose = require('mongoose')
+const session = require('express-session')
+const flash = require('express-flash')
+const MongoDBStore = require('connect-mongo');
 
 
-const port = process.env.port || 5000;
+
+const port = process.env.port || 3000;
+
+
+
 // assets
 app.use(express.static('public'));
 
@@ -14,18 +25,53 @@ app.use(expressLayout);
 app.set('views', path.join(__dirname, '/views'))
 app.set('view engine', 'ejs')
 
+// database connection
+const url = "mongodb://localhost/burger";
+mongoose.connect(url, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: true });
+const connection = mongoose.connection;
+connection.once('open', () => {
+    console.log("dataBase Connected...")
+}).catch(err => {
+    console.log("connection failed...")
+})
 
-// Routes
+
+
+// session(it is act as middle ware,it is used store cart) config
+app.use(session({
+    secret: process.env.COOCIE_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    store: MongoDBStore.create({
+        mongoUrl: 'mongodb://localhost/burger',
+        collection: 'sessions'
+    }),
+    
+    cookie: { maxAge: 1000 * 60 * 60 * 24 }
+    // cookei is set for 24hr
+}))
+
+
+app.use(flash())
+
+app.use(express.json())
+
+app.use(express.urlencoded({ extended: false }));
+
+// globle middleware
+app.use((req, res, next) => {
+    res.locals.session = req.session
+    
+    next();
+})
+
+   // Routes
 require('./routes/web')(app)
 
-
-
-
-
-
-
-
-
+app.get('/get', (req, res) => {
+    let cart = req.session.cart
+    console.log(cart.items)
+})
 
 app.listen(port, (req, res) => {
     console.log(`server is running at port no ${port}`)

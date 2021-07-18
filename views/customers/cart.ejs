@@ -1,6 +1,7 @@
 <hr>
 <section class="container" id="cartid">
 
+<% if(session.cart) {%>
     <div class="order  mx-auto d-flex">
         <div class="summary mt-2">
             <img src="/img/pizza9.jpg" height="40px" width="40px" alt="">
@@ -9,42 +10,51 @@
     </div>
     <hr>
     <div class="summary-head">
+           <div class="pizza_list ">
 
-
-        <div class="pizza_list ">
-
-            <!-- object ko array me convert kiya -->
-
+        <!-- object ko array me convert kiya -->
+        <% for(let burger of Object.values(session.cart.items)) { %>
+          
             <div class="mt-2 pizzabar">
                 <div class="pizza-image">
-                    <img src="/img/pizz2.jpg" height="100px" width="100px" alt="">
+                    <img src="/img/<%= burger.item.image %>" height="100px" width="100px" alt="">
                     <div class="ml-2">
                         <div class="my-2">
-                            mohan
+                            <%= burger.item.name %>
                         </div>
-
-
+            
+            
                         <div>
-                            large
+                            <%= burger.item.size%>
                         </div>
-
-
+            
+            
                     </div>
                 </div>
 
-                <span class="pizza-size">
-                    2pcs
-                </span>
-                <span class="pizza-price">Rs 300</span>
-            </div>
+                <div class="pizza-size">
+                    <button>-</button>
+                    <span >
+                        <%= burger.qty %>Pcs
+                    </span>
+                   <button class="add-cart">+</button>
+                </div>
 
-        </div>
+                <div class="pizza-price">
+                    <span >Rs <%= burger.item.price*burger.qty %></span>
+                </div>
+                     
+               
+                
+            </div>
+            <% } %>
     </div>
-    <hr>
+    </div>
+<hr>
     <div class="right">
         <div>
             <span>Total Amount :</span>
-            <span class="font-weight-bold text-danger">Rs 800</span>
+            <span class="font-weight-bold text-danger">Rs <%= session.cart.totalPrice%></span>
         </div>
 
         <div>
@@ -56,7 +66,7 @@
                 <div class="mt-2">
                     <input type="number" name="phone" id="" placeholder="Mobile No...">
                 </div>
-                <button type="submit" class="mt-2" id="rzp-button1">Order Now</button>
+                <button type="submit" class="mt-2">Order Now</button>
             </form>
 
 
@@ -70,7 +80,7 @@
     </div>
 
 
-
+<%} else {%>
 
 
 
@@ -86,7 +96,7 @@
     </div>
 
 
-
+    <% } %>
 
 </section>
 <hr>
