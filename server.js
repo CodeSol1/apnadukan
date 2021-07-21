@@ -10,7 +10,7 @@ const mongoose = require('mongoose')
 const session = require('express-session')
 const flash = require('express-flash')
 const MongoDBStore = require('connect-mongo');
-
+const passport = require('passport')
 
 
 const port = process.env.port || 3000;
@@ -37,6 +37,9 @@ connection.once('open', () => {
 
 
 
+
+
+
 // session(it is act as middle ware,it is used store cart) config
 app.use(session({
     secret: process.env.COOCIE_SECRET,
@@ -51,27 +54,34 @@ app.use(session({
     // cookei is set for 24hr
 }))
 
+// passport config
+const passportInit = require('./app/config/passport')
+passportInit(passport)
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 app.use(flash())
 
 app.use(express.json())
-
 app.use(express.urlencoded({ extended: false }));
 
 // globle middleware
 app.use((req, res, next) => {
     res.locals.session = req.session
+    res.locals.user = req.user
     
     next();
 })
 
+
+
+
+
    // Routes
 require('./routes/web')(app)
 
-app.get('/get', (req, res) => {
-    let cart = req.session.cart
-    console.log(cart.items)
-})
+
 
 app.listen(port, (req, res) => {
     console.log(`server is running at port no ${port}`)

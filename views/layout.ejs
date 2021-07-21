@@ -20,7 +20,7 @@
     <!-- navbar start -->
     <nav class="navbar navbar-expand-lg navbar-light ">
 
-        <a class="navbar-brand font-weight-bold" href="/">BuRGur</a>
+        <a class="navbar-brand font-weight-bold" href="/">ARPAN</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -31,25 +31,42 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="/">HOME <span class="sr-only">(current)</span></a>
                 </li>
+                
+
+               <% if(user){ %>
+
+                   <form id="logout" action="/logout" method="post">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">MENU</a>
+                    <a class="nav-link" onclick="document.getElementById('logout').submit()" href="#">LOGOUT</a>
                 </li>
+                </form>
+               
+
+
+                <li class="nav-item active">
+                <a  class="nav-link" href="#"><%= user.name%></a>
+                </li>
+
+
+                <% } else{ %>
                 <li class="nav-item active">
                     <a class="nav-link" href="/login">LOGIN</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="/register">SIGNUP</a>
                 </li>
+                <%}%>
+
 
                 <li class="nav-item active">
-                    <a class="nav-link" href="/cart">ORDER</a>
+                    <a class="nav-link" href="/cart">CART</a>
                 </li>
                
 
 
                 <div class="shoping-cart">
                     <span id="cartCounter"><%= session.cart ? session.cart.totalQty :'' %></span>
-                    <span class="cart_image"><a href="/cart"><img src="img/pizza9.jpg" height="20px" width="20px"
+                    <span class="cart_image"><a href="/cart"><img src="img/main-cart.jpg" height="20px" width="20px"
                                 class="" alt=""></a></span>
                 </div>
 
@@ -64,7 +81,7 @@
         <footer>
             <div class="footer-content">
                 <h3>ARPAN : The Online Burger Delivery App</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis veniam praesentium nemo ipsa
+                <p>Lorem ipsum hfkasjfdl dolor sit amet consectetur adipisicing elit. Officiis veniam praesentium nemo ipsa
                     asperiores eum deserunt dolores, repudiandae cum assumenda.</p>
                 <ul class="socials">
                     <li><a href="https://www.facebook.com/rituraj.chaurasia.50" target="_blank"><i

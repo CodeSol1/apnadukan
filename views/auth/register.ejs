@@ -11,20 +11,21 @@
         <div class="register-bar">
             <form action="/register" method="POST">
 
-                <% if(messages.error) { %>
-                    </span>
-                    <%= messages.error %></span>
-                        <% } %>
-
+               <% if(messages.error) {%>
+                    <span class="text-danger"><%= messages.error%></span>
+                <%}%>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">username</label>
-                                <input type="text" class="form-control" name="name" value="<%= messages.name%>"
-                                    id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter username">
+                                <input type="text" class="form-control" name="name" 
+                                    id="exampleInputEmail1" 
+                                    value="<%=messages.name1%>"
+                                    aria-describedby="emailHelp" placeholder="Enter username">
 
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" class="form-control" name="email" value="<%= messages.email%>"
+                                <input type="email" class="form-control" name="email"
+                                     value="<%=messages.email1%>" 
                                     id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
 
                             </div>
