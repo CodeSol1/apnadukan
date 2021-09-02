@@ -57,35 +57,35 @@
             <span class="font-weight-bold text-danger">Rs <%= session.cart.totalPrice%></span>
         </div>
 
+
+        
         <div>
+            <% if(user){ %>
             <form action="/orders" method="POST">
                 <div class="mt-3">
                     <input type="text" name="address" id="" placeholder="Address...">
                 </div>
 
-                <div class="mt-2">
+               <div class="mt-2">
                     <input type="number" name="phone" id="" placeholder="Mobile No...">
                 </div>
                 <button type="submit" class="mt-2">Order Now</button>
             </form>
+            <% } else{ %>
 
 
             <div class="login-btn1">
                 <a href="/login">Login To Continue</a>
             </div>
 
-
+             <% } %>
         </div>
 
     </div>
 
 
 <%} else {%>
-
-
-
-
-    <div class="container text-center mx-auto">
+<div class="container text-center mx-auto">
         <h3>Empty Cart</h3>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing </p>
         <img src="/img/empty-cart.jpg" width="50%" height="40%" alt="">
