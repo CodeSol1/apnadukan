@@ -26,7 +26,7 @@ app.set('views', path.join(__dirname, '/views'))
 app.set('view engine', 'ejs')
 
 // database connection
-const url = "mongodb://localhost/burger";
+const url = "mongodb+srv://Rituraj:wALSbytCgwgyFhua@cluster0.ofmd6.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 mongoose.connect(url, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: true });
 const connection = mongoose.connection;
 connection.once('open', () => {
@@ -46,10 +46,10 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     store: MongoDBStore.create({
-        mongoUrl: 'mongodb://localhost/burger',
+        mongoUrl: 'mongodb+srv://Rituraj:wALSbytCgwgyFhua@cluster0.ofmd6.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
         collection: 'sessions'
     }),
-    
+
     cookie: { maxAge: 1000 * 60 * 60 * 24 }
     // cookei is set for 24hr
 }))
@@ -70,7 +70,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use((req, res, next) => {
     res.locals.session = req.session
     res.locals.user = req.user
-    
+
     next();
 })
 
@@ -78,7 +78,7 @@ app.use((req, res, next) => {
 
 
 
-   // Routes
+// Routes
 require('./routes/web')(app)
 
 
