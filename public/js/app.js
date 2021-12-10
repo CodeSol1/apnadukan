@@ -5243,13 +5243,20 @@ var cartCounter = document.querySelector("#cartCounter"); // 2
 
 function updateCart(burger1) {
   axios__WEBPACK_IMPORTED_MODULE_0___default().post('/update-cart', burger1).then(function (res) {
+    // console.log(res)
     cartCounter.innerText = res.data.totalQty;
+    new (noty__WEBPACK_IMPORTED_MODULE_1___default())({
+      type: "success",
+      text: "Notification text"
+    }).show();
   });
 } // 1.
 
 
 addToCart.forEach(function (btn) {
   btn.addEventListener('click', function (e) {
+    // let burger = btn.dataset.burder
+    // console.log(burger)
     var burger1 = JSON.parse(btn.dataset.burger);
     updateCart(burger1);
   });

@@ -16,6 +16,7 @@ function allRoutes(app) {
 
     app.get('/register',guest, authController().register)
     app.post('/register', authController().postregister)
+    
     app.post('/logout', authController().logout)
 
 

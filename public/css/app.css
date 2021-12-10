@@ -1,3 +1,6 @@
+
+
+
 *{
     margin: 0px;
     padding: 0px;
@@ -459,4 +462,10 @@ footer{
 /* orders */
 .raj{
     color: red;
+}
+
+
+.noty_theme_min{
+    border-radius: 40px;
+    padding-left: 8px!important;
 }

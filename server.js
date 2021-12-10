@@ -40,7 +40,7 @@ connection.once('open', () => {
 
 
 
-// session(it is act as middle ware,it is used store cart) config
+// session(it is act as middleware,it is used store cart) config
 app.use(session({
     secret: process.env.COOCIE_SECRET,
     resave: false,

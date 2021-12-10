@@ -1,5 +1,5 @@
 import axios from "axios";
-// import noty from 'noty'
+import Noty from "noty";
 
 
 let addToCart = document.querySelectorAll(".add-cart")
@@ -11,8 +11,15 @@ let cartCounter = document.querySelector("#cartCounter")
 function updateCart(burger1) {
     axios.post('/update-cart', burger1).then((res) => {
         // console.log(res)
-       cartCounter.innerText = res.data.totalQty
-      })
+        cartCounter.innerText = res.data.totalQty
+
+        new Noty({
+            type:"success",
+            text: "Notification text"
+        }).show();
+    })
+
+     
 }
 
 

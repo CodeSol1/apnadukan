@@ -4,6 +4,8 @@ function cartController() {
             
             res.render('customers/cart')
         },
+
+
         update: (req, res) => {
 
             // console.log(req.body)
@@ -26,6 +28,7 @@ function cartController() {
                     totalPrice: 0,
                 }
             }
+            
             let cart = req.session.cart
                 // check if item does not exists in cart
             if (!cart.items[req.body._id]) {
