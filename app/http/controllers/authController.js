@@ -12,6 +12,7 @@ function authController() {
             
             const { email, password } = req.body;
             // valiidate request
+
             if ( !email || !password) {
                 req.flash('error', 'All fields are required');
                 
@@ -54,9 +55,9 @@ function authController() {
                 req.flash('name1',name),
                 req.flash('email1',email)
                 return res.redirect('/register')
-         }
+            }
 
-            // check if email exists
+            // check if email exists already.
             User.exists({ email: email }, (err, result) => {
                 
                 if (result) {
@@ -66,7 +67,7 @@ function authController() {
                     return res.redirect('/register')
                  }
 
-            })
+           })
 
             // hash password
             const hashedPassword = await bcrypt.hash(password,10)
@@ -78,9 +79,10 @@ function authController() {
                 password:hashedPassword
 
             })
+
             user.save().then((user) => {
                 // login
-              return res.redirect('/login')
+              return res.redirect('/')
             }).catch(() => {
                 req.flash('error', 'Something went wrong')
                   
@@ -95,7 +97,9 @@ function authController() {
         
         logout: (req, res)=>{
             req.logout();
+        
             return res.redirect('/login')
+            
         }
 
     }

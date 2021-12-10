@@ -24,9 +24,9 @@ function allRoutes(app) {
     app.get('/cart', cartController().index)
     app.post('/update-cart', cartController().update)
 
-    // customers
+    // customers routs
     app.post('/orders', orderController().store)
-    app.get('/customer/orders', orderController().index)
+    app.get('/customers/order', orderController().index)
 
     
 }
