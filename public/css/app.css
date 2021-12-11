@@ -290,8 +290,8 @@ padding-left: 20px;
     
 }
 .add-cart:hover{
-    background-color: aqua;
-    color: red;
+    background-color: rgb(255, 0, 221);
+    color: white;
 }
 
 /* login page start */
@@ -472,7 +472,7 @@ footer{
 
 .final_order{
    border-radius: 30px;
-   width: 15%;
+   width: 35%;
    background-color: rgb(199, 8, 142);
    color: black
 }
@@ -482,4 +482,16 @@ footer{
 .final_order:hover{
     background-color: tomato;
     color: white;
+}
+
+.cash{
+    border-radius: 30px;
+    width: 25%;
+    color: black;
+
+}
+.cash_delivery{
+    color: tomato;
+    margin-left:  140px;
+    margin-top: 20px;
 }

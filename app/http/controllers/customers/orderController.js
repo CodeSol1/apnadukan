@@ -23,7 +23,8 @@ function oderController() {
             
             order.save().then(result => {
                 req.flash('success', 'Order placed successfully')
-                req.session.cart = null;
+                delete req.session.cart
+                
                 return res.redirect('/')
             }).catch(err => {
                 req.flash('error','somethings went wrong')
